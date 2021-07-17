@@ -1,10 +1,10 @@
 let express = require("express");
 const app = express();
-const port = 3000;
-
+require('dotenv').config({path: __dirname + '/../.env'});
 const bodyParser = require("body-parser");
 
-app.use(bodyParser.json());
+const port = process.env.PORT || 3000;
+bodyParser.json();
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
@@ -20,8 +20,7 @@ const db = mysql.createConnection({
   host: process.env.HOST,
   user:process.env.USER,
   password: process.env.PASSWORD,
-  database: process.env.DB,
-  port: 3306,
+  database: process.env.DB
 });
 
 const util = require("util");
