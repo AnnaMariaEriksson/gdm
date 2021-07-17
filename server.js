@@ -1,9 +1,8 @@
 let express = require("express");
 const app = express();
-require('dotenv').config({path: __dirname + '/../.env'});
 const bodyParser = require("body-parser");
+const port = 3000;
 
-const port = process.env.PORT || 3000;
 bodyParser.json();
 
 app.get('/', (req, res) => {
@@ -15,7 +14,7 @@ app.get('/dogs', async (request, response) => {
   response.json(data)
 })
 
-const mysql = require("mysql2");
+const mysql = require("mysql");
 const db = mysql.createConnection({
   host: process.env.HOST,
   user:process.env.USER,
