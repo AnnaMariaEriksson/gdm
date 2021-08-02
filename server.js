@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
 app.get('/dogs', async (request, response) => {
   let data = await db.query('SELECT * FROM dogs')
   response.json(data)
-})
+});
 
 const mysql = require("mysql");
 const db = mysql.createConnection({

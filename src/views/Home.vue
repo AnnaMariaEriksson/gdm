@@ -4,7 +4,13 @@
     <h2>Soon you'll find some awesomesauce stuff here.</h2>
     <p>I'm very excited about this!</p>
     <ul>
-      <li v-for="(dog, i) in dogs" :key="i">{{dog.name}}</li>
+      <li v-for="(dog, i) in dogs" :key="i">{{ dog.name }}</li>
+    </ul>
+
+    <ul>
+      <li v-for="(post, i) in posts" :key="i">
+        <span v-html="post.content.rendered"></span>
+      </li>
     </ul>
   </div>
 </template>
@@ -18,13 +24,16 @@ export default {
   name: "Home",
   data() {
     return {
-      dogs: {}
-    }
+      dogs: {},
+      posts: {},
+    };
   },
   computed: {},
   created() {
-    axios.get("/dogs")
-    .then(response => this.dogs = response.data)
-  }
+    axios.get("/dogs").then((response) => (this.dogs = response.data));
+
+    //Change to the right API address after .env issue has been figured out.
+    axios.get("/posts").then((response) => (this.posts = response.data));
+  },
 };
 </script>
