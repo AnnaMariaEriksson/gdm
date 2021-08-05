@@ -8,7 +8,8 @@
   <b-form-group id="password" label="Password">
     <b-form-input type="password" placeholder="password..." v-model="password"></b-form-input>
   </b-form-group>
-  <b-button id="sign-in">Sign in</b-button>
+  <b-button id="sign-in" class="float-start" type="submit">Sign in</b-button>
+  <b-button id="register" class="float-end">Register</b-button>
 </b-form>
 </div>
 </template>
@@ -27,7 +28,7 @@ export default {
 
 <style scoped>
 form {
-  width: 50%;
+  width: 25%;
   margin: auto;
 }
 </style>
