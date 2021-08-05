@@ -33,7 +33,7 @@ export default {
     axios.get("/dogs").then((response) => (this.dogs = response.data));
 
     //Change to the right API address after .env issue has been figured out.
-    axios.get("/posts").then((response) => (this.posts = response.data));
+    axios.get(process.env.VUE_APP_API_URL + "/wp-json/wp/v2/posts").then((response) => (this.posts = response.data));
   },
 };
 </script>
